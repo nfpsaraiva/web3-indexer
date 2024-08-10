@@ -2,6 +2,7 @@ import '@mantine/core/styles.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { theme } from '../theme';
+import AppShell from './_components/Layout/AppShell/AppShell';
 
 export const metadata = {
   title: 'Mantine Next.js template',
@@ -14,13 +15,16 @@ export default function RootLayout({ children }: { children: any }) {
       <head>
         <ColorSchemeScript />
         <link rel="shortcut icon" href="/favicon.svg" />
+        <link type='text/stylesheet' href="/global.css" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <AppShell>{children}</AppShell>
+        </MantineProvider>
       </body>
     </html>
   );
